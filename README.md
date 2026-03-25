@@ -35,7 +35,20 @@ src/main/java/com/example/juc/
 ├── StampedLockExample.java        # StampedLock乐观读锁
 ├── VarHandleExample.java          # JDK 9+ VarHandle原子操作
 ├── ConcurrencyOptimization.java   # 并发性能优化技巧
-└── VirtualThreadExample.java       # Java 21+ 虚拟线程
+├── VirtualThreadExample.java       # Java 21+ 虚拟线程
+├── CountDownLatchDeepDive.java     # CountDownLatch深度剖析
+├── CyclicBarrierDeepDive.java     # CyclicBarrier深度剖析
+├── SemaphoreDeepDive.java         # Semaphore深度剖析
+├── ConditionExample.java           # Condition条件变量示例
+├── ThreadCommunicationExample.java # 线程间通信
+├── LockSupportExample.java         # LockSupport工具类
+├── InterruptibleTaskExample.java   # 可中断任务处理
+├── DeadlockDetectionExample.java   # 死锁检测与预防
+├── ThreadExceptionHandlingExample.java # 线程异常处理
+├── MemoryModelExample.java         # Java内存模型
+├── ThreadPoolMonitoringExample.java # 线程池监控与调优
+├── ThreadGroupExample.java         # ThreadGroup使用示例
+└── ConcurrencyBenchmarkExample.java # 并发性能基准测试
 ```
 
 ## 学习内容
@@ -64,6 +77,19 @@ src/main/java/com/example/juc/
 20. **VarHandle** - JDK 9+ 原子操作新方式
 21. **虚拟线程** - Java 21+ 轻量级线程
 22. **并发优化** - 性能优化最佳实践
+23. **CountDownLatch深度剖析** - 多任务聚合、服务初始化、竞赛场景
+24. **CyclicBarrier深度剖析** - 多阶段同步、屏障重用、超时处理
+25. **Semaphore深度剖析** - API限流、资源池、公平/非公平模式
+26. **Condition条件变量** - 生产者-消费者、await/signal、超时等待
+27. **线程间通信** - wait/notify、管道通信、join等待
+28. **LockSupport** - park/unpark、vs Object.wait、自定义Future
+29. **可中断任务处理** - 正确处理中断、ExecutorService中断、恢复重试
+30. **死锁检测与预防** - 死锁场景、tryLock预防、银行家算法
+31. **线程异常处理** - UncaughtExceptionHandler、Future异常处理
+32. **Java内存模型** - Happens-Before规则、volatile语义、可见性
+33. **线程池监控** - 状态查询、自定义拒绝策略、动态调优
+34. **ThreadGroup** - 线程组管理、批量中断、统一异常处理
+35. **并发性能测试** - synchronized vs Lock、集合对比、JMH使用
 
 ### 深度剖析示例
 
@@ -157,11 +183,62 @@ mvn exec:java -Dexec.mainClass="com.example.juc.ConcurrentCollectionsExample"
 
 ## 学习路线
 
-详细的学习路线请参考 [LEARNING_ROADMAP.md](LEARNING_ROADMAP.md)，包含：
+详细的学习路线请参考 [学习路线.md](学习路线.md)，包含：
 - 8个学习阶段（从基础到高级）
 - 每个主题的学习时间和练习建议
 - 学习检查清单
 - 推荐书籍和资源
+
+## 文档资源
+
+- **[最佳实践.md](最佳实践.md)** - JUC 最佳实践总结
+  - 线程管理最佳实践
+  - 锁的使用指南
+  - 原子类和并发集合使用
+  - 线程池配置和优化
+  - 异步编程模式
+  - 性能优化技巧
+  - 常见陷阱和预防
+
+- **[常见问题.md](常见问题.md)** - 常见问题与解答
+  - 基础概念问题
+  - 锁机制问题
+  - 并发集合问题
+  - 线程池问题
+  - 异步编程问题
+  - 性能问题
+
+- **[性能调优.md](性能调优.md)** - 性能调优指南
+  - 性能分析工具（JMH、JFR、Arthas）
+  - 锁优化策略
+  - 线程池调优
+  - 并发集合优化
+  - 内存优化
+  - JVM 调优参数
+
+- **[问题排查.md](问题排查.md)** - 问题排查指南
+  - 死锁排查方法
+  - 内存泄漏排查
+  - 性能问题排查
+  - 线程问题排查
+  - 常见错误和解决方案
+  - 排查工具推荐
+
+## 测试用例
+
+项目包含完整的单元测试，帮助理解并发概念：
+
+| 测试类 | 说明 |
+|--------|------|
+| `AtomicExampleTest.java` | Atomic 类测试 |
+| `BlockingQueueTest.java` | 阻塞队列测试 |
+| `ThreadLocalExampleTest.java` | ThreadLocal 测试 |
+| `CompletableFutureExampleTest.java` | CompletableFuture 测试 |
+| `ThreadPoolExampleTest.java` | 线程池测试 |
+| `LockExampleTest.java` | 锁机制测试 |
+| `SynchronizationExampleTest.java` | 同步工具类测试 |
+| `VolatileExampleTest.java` | Volatile 测试 |
+| `ConcurrencyPatternsTest.java` | 并发设计模式测试 |
 
 ## 学习目标
 
